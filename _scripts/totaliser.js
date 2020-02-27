@@ -6,6 +6,8 @@ $( document ).ready(function() {
 	const raisedElement = $('.js-raised');
 	const percentageElement = $('.js-percentage');
 
+
+	// Totaliser controls
 	const totaliserInit = () => {
 
 		let target;
@@ -18,7 +20,7 @@ $( document ).ready(function() {
 		const setRaised = (value) => {
 			raised = value;
 		}
-		calcPercent = () => {
+		const calcPercent = () => {
 			percent = getPercentage(target, raised);
 		}
 		const updateUI = () => {
@@ -48,8 +50,6 @@ $( document ).ready(function() {
 	// Update the text values of the corresponding UI elements
 	const updateUIVals = (target, raised, percent) => {
 		
-		// const {} = textValues;
-		console.log("percent", percent);
 		$(targetElement[0]).html(target);
 		$(raisedElement[0]).html(raised);
 		$(percentageElement[0]).html(percent);
@@ -68,7 +68,6 @@ $( document ).ready(function() {
 	// Pass data to totaliser on submit
 	$('#form').on('submit', (e) => {
 		e.preventDefault();
-
 		const raised = $('#js-amount').val();
 		const target = $('#js-target').val();
 		submitDataToTotaliser(raised, target);
